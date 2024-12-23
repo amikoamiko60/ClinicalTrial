@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>4769235c-9526-41a1-a285-60c709056d8c</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <Content Remove="Schemas\ClinicalTrialSchema.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Schemas\ClinicalTrialSchema.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClinicalTrial.BusinessLogic\ClinicalTrial.BusinessLogic.csproj" />
+    <ProjectReference Include="..\ClinicalTrial.DataAccess\ClinicalTrial.DataAccess.csproj" />
+    <ProjectReference Include="..\ClinicalTrial.DataContracts\ClinicalTrial.DataContracts.csproj" />
+  </ItemGroup>
+
+</Project>
